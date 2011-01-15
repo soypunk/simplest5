@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
   <head>
-    <meta charset="<?php bloginfo( 'charset' ); ?>" />
-    <link rel="profile" href="http://gmpg.org/xfn/11" />
-    <link rel="stylesheet" type="text/css" media="all" href="<?php bloginfo( 'stylesheet_url' ); ?>" />
-    <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
-    <title><?php bloginfo( 'name' ); ?><?php wp_title( '&mdash;' ); ?></title>
+    <meta charset="<?php bloginfo( 'charset' ); ?>">
+    <title><?php bloginfo( 'name' ); ?><?php wp_title( '&mdash;' ); ?></title>    
+    <link rel="stylesheet" href="<?php bloginfo( 'stylesheet_url' ); ?>">
+    <?php echo '<link rel="alternate" type="' . feed_content_type('atom') . '" title="' . esc_attr(sprintf( $args['feedtitle'], get_bloginfo('name'), $args['separator'] )) . '" href="' . get_feed_link('atom') . "\">\n"; ?>
     <?php if ( is_singular() && get_option( 'thread_comments') ) wp_enqueue_script( 'comment-reply' ); ?>
     <?php wp_head(); ?>
   </head>
