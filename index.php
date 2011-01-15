@@ -19,8 +19,9 @@
       </header><!-- header -->
       <div id="content" role="main">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+        <?php the_date('l, j F Y', '<h2 class="dateline">', '</h2>'); ?>
           <div <?php post_class(); ?>>
-            <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
+            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <?php the_content(); ?>
             <?php if ( !is_singular() && get_the_title() == '' ) : ?>
               <a href="<?php the_permalink(); ?>">(more...)</a>
