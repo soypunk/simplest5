@@ -10,14 +10,14 @@
   </head>
   <body <?php body_class(); ?>>
     <div id="container">
-      <div id="header">
+      <header id="site-header">
         <h1><a href="<?php bloginfo('url'); ?>"><?php bloginfo( 'name' ); ?></a></h1>
         <p id="description"><?php bloginfo( 'description' ); ?></p>
         <?php if ( has_nav_menu( 'menu' ) ) : wp_nav_menu(); else : ?>
           <ul><?php wp_list_pages( 'title_li=&depth=-1' ); ?></ul>
         <?php endif; ?>
-      </div><!-- header -->
-      <div id="content">
+      </header><!-- header -->
+      <div id="content" role="main">
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
           <div <?php post_class(); ?>>
             <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
@@ -52,6 +52,8 @@
         <?php endif; ?>
         <div class="clear"> </div>
       </div><!-- content -->
+      <footer id="site-footer">
+      </footer>      
     </div><!-- container -->
     <?php wp_footer(); ?>
   </body>
